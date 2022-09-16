@@ -1,0 +1,12 @@
+<aside class="sidebar">
+    <p>Popular Tags</p>
+    <div class="tag-list">
+        <ng-container *ngIf="popularTags$ | async as popularTags">
+            <a class="tag-default tag-pill" *ngFor="let tag of popularTags" [routerLink]="['/tags', tag]">
+                {{tag}}
+            </a>
+        </ng-container>
+        <app-loading *ngIf="isLoading$ | async"></app-loading>
+        <app-error-message *ngIf="error$ | async"></app-error-message>
+    </div>
+</aside>
